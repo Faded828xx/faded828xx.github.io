@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Faded828xx Blog</title>
+    <link>https://faded828xx.github.io/categories/hugo/</link>
+    <description>Recent content in Hugo on Faded828xx Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 16 Apr 2021 19:26:10 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo建站</title>
+      <link>https://faded828xx.github.io/post/hugo%E5%BB%BA%E7%AB%99/</link>
+      <pubDate>Fri, 16 Apr 2021 19:26:10 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/hugo%E5%BB%BA%E7%AB%99/</guid>
+      <description>Hugo是go开发的，用于为Github Pages生成静态网站，在本地编辑markdown文件后push到git仓库，username.github.io便会自动更新博客。Hugo据说相比其他工具比如Hexo等轻量化，且提供了许多主题。</description>
+    </item>
+    
+  </channel>
+</rss>
