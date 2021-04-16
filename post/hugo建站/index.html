@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no" />
     <meta name="theme-color" content="#000084" />
-    <link rel="icon" href="https://faded828xx.github.io//favicon.ico">
-    <link rel="canonical" href="https://faded828xx.github.io/">
+    <link rel="icon" href="https://example.org/favicon.ico">
+    <link rel="canonical" href="https://example.org">
     
     
 </head>
@@ -16,7 +16,7 @@
     <div class="navbar-inner">
         <div class="container">
             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></button>
-            <a class="brand" href="https://faded828xx.github.io/">Faded828xx Blog</a>
+            <a class="brand" href="https://example.org">Faded828xx Blog</a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     
@@ -51,8 +51,19 @@
     </div>
     <p class="lead"></p>
     <p>Hugo是go开发的，用于为Github Pages生成静态网站，在本地编辑markdown文件后push到git仓库，username.github.io便会自动更新博客。Hugo据说相比其他工具比如Hexo等轻量化，且提供了许多<a href="https://themes.gohugo.io/">主题</a>。</p>
-
-    <h4><a href="https://faded828xx.github.io/">Back to Home</a></h4>
+<pre><code>hugo new site hugo_hugo.386_blog
+cd hugo_hugo.386_blog
+git clone https://gitlab.com/maxlefou/hugo.386 themes/hugo.386
+hugo new post/First.md
+hugo server -t hugo.386 --buildDrafts
+hugo --theme=hugo.386 --baseUrl=&quot;https://faded828xx.github.io/&quot; --buildDrafts
+git init
+git add .
+git commit -m &quot;first commit: hugo blog&quot;
+git remote add origin https://github.com/faded828xx/faded828xx.github.io.git
+git push -u origin master
+</code></pre>
+    <h4><a href="https://example.org">Back to Home</a></h4>
 </div>
 
 
