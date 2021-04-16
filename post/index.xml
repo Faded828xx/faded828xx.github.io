@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Faded828xx Blog</title>
-    <link>https://example.org/post/</link>
+    <link>https://faded828xx.github.io/post/</link>
     <description>Recent content in Posts on Faded828xx Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 16 Apr 2021 19:26:10 +0800</lastBuildDate><atom:link href="https://example.org/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Apr 2021 19:26:10 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo建站</title>
-      <link>https://example.org/post/hugo%E5%BB%BA%E7%AB%99/</link>
+      <link>https://faded828xx.github.io/post/hugo%E5%BB%BA%E7%AB%99/</link>
       <pubDate>Fri, 16 Apr 2021 19:26:10 +0800</pubDate>
       
-      <guid>https://example.org/post/hugo%E5%BB%BA%E7%AB%99/</guid>
+      <guid>https://faded828xx.github.io/post/hugo%E5%BB%BA%E7%AB%99/</guid>
       <description>Hugo是go开发的，用于为Github Pages生成静态网站，在本地编辑markdown文件后push到git仓库，username.github.io便会自动更新博客。Hugo据说相比其他工具比如Hexo等轻量化，且提供了许多主题。
 hugo new site hugo_hugo.386_blog cd hugo_hugo.386_blog git clone https://gitlab.com/maxlefou/hugo.386 themes/hugo.386 hugo new post/First.md hugo server -t hugo.386 --buildDrafts hugo --theme=hugo.386 --baseUrl=&amp;quot;https://faded828xx.github.io/&amp;quot; --buildDrafts git init git add . git commit -m &amp;quot;first commit: hugo blog&amp;quot; git remote add origin https://github.com/faded828xx/faded828xx.github.io.git git push -u origin master </description>
     </item>

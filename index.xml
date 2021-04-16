@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Faded828xx Blog</title>
-    <link>https://example.org/</link>
+    <link>https://faded828xx.github.io/</link>
     <description>Recent content on Faded828xx Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 16 Apr 2021 19:26:10 +0800</lastBuildDate><atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Apr 2021 19:26:10 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo建站</title>
-      <link>https://example.org/post/hugo%E5%BB%BA%E7%AB%99/</link>
+      <link>https://faded828xx.github.io/post/hugo%E5%BB%BA%E7%AB%99/</link>
       <pubDate>Fri, 16 Apr 2021 19:26:10 +0800</pubDate>
       
-      <guid>https://example.org/post/hugo%E5%BB%BA%E7%AB%99/</guid>
+      <guid>https://faded828xx.github.io/post/hugo%E5%BB%BA%E7%AB%99/</guid>
       <description>Hugo是go开发的，用于为Github Pages生成静态网站，在本地编辑markdown文件后push到git仓库，username.github.io便会自动更新博客。Hugo据说相比其他工具比如Hexo等轻量化，且提供了许多主题。
 hugo new site hugo_hugo.386_blog cd hugo_hugo.386_blog git clone https://gitlab.com/maxlefou/hugo.386 themes/hugo.386 hugo new post/First.md hugo server -t hugo.386 --buildDrafts hugo --theme=hugo.386 --baseUrl=&amp;quot;https://faded828xx.github.io/&amp;quot; --buildDrafts git init git add . git commit -m &amp;quot;first commit: hugo blog&amp;quot; git remote add origin https://github.com/faded828xx/faded828xx.github.io.git git push -u origin master </description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://example.org/about/</link>
+      <link>https://faded828xx.github.io/about/</link>
       <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.org/about/</guid>
+      <guid>https://faded828xx.github.io/about/</guid>
       <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
 Hugo makes use of a variety of open source projects including:
  https://github.</description>
