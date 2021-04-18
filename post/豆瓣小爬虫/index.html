@@ -44,29 +44,95 @@
         </div>
     </div>
 </nav><div id="content" class="container">
-<article class="row-fluid navmargin">
-    <header class="page-header">
-        <h1>Tags</h1>
-    </header>
-    
-    
-</article>
-<ul>
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>豆瓣小爬虫 - Sun, Apr 18, 2021</h1>
+    </div>
+    <p class="lead"></p>
+    <p>urllib爬取豆瓣网站</p>
+<p>bs4解析html页面，获取有用信息并封装到数组中</p>
+<p>sqlite3数据库，将数组存入其中</p>
+<p>flask框架作为服务器，路由url地址到指定html页面，并从数据库取出变量动态写入页面</p>
+<pre><code>import re
+import sqlite3
+import urllib.request
+import bs4
+from flask import Flask, render_template
+import ssl
+
+ssl._create_default_https_context = ssl.SSLContext
+
+app = Flask(__name__)
 
 
-    <li>
-        <a href="https://faded828xx.github.io/tags/python/">2021-04-18 | python</a>
-    </li>
+@app.route('/movie')
+def movie():
+    movies = saveDB()
+    return render_template('movie.html', movies=movies)
 
-    <li>
-        <a href="https://faded828xx.github.io/tags/%E7%88%AC%E8%99%AB/">2021-04-18 | 爬虫</a>
-    </li>
 
-    <li>
-        <a href="https://faded828xx.github.io/tags/hugo/">2021-04-16 | Hugo</a>
-    </li>
+if __name__ == '__main__':
+    app.run()
 
-</ul>
+
+def getData():  # 返回25部电影数组
+    html = getHtml('https://movie.douban.com/top250')
+    bs = bs4.BeautifulSoup(html, 'html.parser')
+    datalist = []  # 存储25部电影
+    for item in bs.find_all('div', class_='item'):
+        data = []
+        item = str(item)  # 每部电影信息
+        movielink = re.compile(r'&lt;a href=&quot;(.*?)&quot;')  # 电影链接正则
+        moviename = re.compile(r'&lt;span class=&quot;title&quot;&gt;(.*)&lt;/span&gt;')  # 电影名正则
+        link = re.findall(movielink, item)[0]
+        name = re.findall(moviename, item)
+        data.append(link)
+        if len(name) == 2:
+            data.append(name[0])
+            data.append(name[1].replace('\xa0/\xa0', ''))
+        else:
+            data.append(name[0])
+            data.append(' ')
+        datalist.append(data)
+    return datalist
+
+
+def getHtml(baseurl):  # 请求url 并返回html页面
+    req = urllib.request.Request(baseurl)  # 请求url
+    req.add_header('User-Agent',  # 更改请求方从python到browser
+                   'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_3) AppleWebKit/537.36 '
+                   '(KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36')
+    response = urllib.request.urlopen(req, timeout=3)  # 打开url post需提交data
+    html = response.read().decode('utf-8')  # 响应体
+    return html
+
+
+def saveDB():  # 将数组存到sqlite数据库中
+    conn = sqlite3.connect('movie.db')
+    cursor = conn.cursor()
+    # cursor.execute('create table movie (Rank varchar(10), '
+    #                'Link varchar(100), '
+    #                'ChineseName varchar(50), '
+    #                'OriginalName varchar(50));')
+    datalist = getData()
+    for i in range(0, 25):
+        cursor.execute(&quot;insert into movie values(?, ?, ?, ?);&quot;,
+                       (i + 1, datalist[i][0],
+                        datalist[i][1], datalist[i][2]))
+    moviesDB = cursor.execute(&quot;select * from movie&quot;)
+    movies = []  # moviesDB因为关闭cursor不能直接return 新建数组来保存
+    for item in moviesDB:
+        movies.append(item)
+    cursor.close()
+    conn.commit()
+    conn.close()
+    return movies
+
+</code></pre>
+    <h4><a href="https://faded828xx.github.io">Back to Home</a></h4>
+</div>
+
 
         </div><footer class="container">
     <hr class="soften">

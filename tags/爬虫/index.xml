@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Faded828xx Blog</title>
-    <link>https://faded828xx.github.io/post/</link>
-    <description>Recent content in Posts on Faded828xx Blog</description>
+    <title>爬虫 on Faded828xx Blog</title>
+    <link>https://faded828xx.github.io/tags/%E7%88%AC%E8%99%AB/</link>
+    <description>Recent content in 爬虫 on Faded828xx Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Apr 2021 14:29:53 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Apr 2021 14:29:53 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/tags/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>豆瓣小爬虫</title>
       <link>https://faded828xx.github.io/post/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%88%AC%E8%99%AB/</link>
@@ -18,16 +18,6 @@ bs4解析html页面，获取有用信息并封装到数组中
 sqlite3数据库，将数组存入其中
 flask框架作为服务器，路由url地址到指定html页面，并从数据库取出变量动态写入页面
 import re import sqlite3 import urllib.request import bs4 from flask import Flask, render_template import ssl ssl._create_default_https_context = ssl.SSLContext app = Flask(__name__) @app.route(&#39;/movie&#39;) def movie(): movies = saveDB() return render_template(&#39;movie.html&#39;, movies=movies) if __name__ == &#39;__main__&#39;: app.run() def getData(): # 返回25部电影数组 html = getHtml(&#39;https://movie.douban.com/top250&#39;) bs = bs4.BeautifulSoup(html, &#39;html.parser&#39;) datalist = [] # 存储25部电影 for item in bs.find_all(&#39;div&#39;, class_=&#39;item&#39;): data = [] item = str(item) # 每部电影信息 movielink = re.</description>
-    </item>
-    
-    <item>
-      <title>Hugo建站</title>
-      <link>https://faded828xx.github.io/post/hugo%E5%BB%BA%E7%AB%99/</link>
-      <pubDate>Fri, 16 Apr 2021 19:26:10 +0800</pubDate>
-      
-      <guid>https://faded828xx.github.io/post/hugo%E5%BB%BA%E7%AB%99/</guid>
-      <description>Hugo是go开发的，用于为Github Pages生成静态网站，在本地编辑markdown文件后push到git仓库，username.github.io便会自动更新博客。Hugo据说相比其他工具比如Hexo等轻量化，且提供了许多主题。
-hugo new site hugo_hugo.386_blog cd hugo_hugo.386_blog git clone https://gitlab.com/maxlefou/hugo.386 themes/hugo.386 hugo new post/First.md hugo server -t hugo.386 --buildDrafts hugo --theme=hugo.386 --baseUrl=&amp;quot;https://faded828xx.github.io/&amp;quot; --buildDrafts git init git add . git commit -m &amp;quot;first commit: hugo blog&amp;quot; git remote add origin https://github.com/faded828xx/faded828xx.github.io.git git push -u origin master </description>
     </item>
     
   </channel>
