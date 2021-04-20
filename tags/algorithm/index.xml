@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algorithm on Faded828xx Blog</title>
+    <link>https://faded828xx.github.io/tags/algorithm/</link>
+    <description>Recent content in algorithm on Faded828xx Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 20 Apr 2021 19:14:55 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>字符串模式匹配</title>
+      <link>https://faded828xx.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/</link>
+      <pubDate>Tue, 20 Apr 2021 19:14:55 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/</guid>
+      <description>字符串模式匹配问题再经典不过了，暴力和API调用就不再赘述了。之前学的是RK算法，用的是Hash，还看了Java的indexOf源码，今天正好力扣每日一题又刷到，来学习大名鼎鼎的KMP算法。直接上代码：
+// KMP字符串匹配 利用前缀数组 当不匹配时 忽略已匹配字符中的相同前后缀 public int strStr(String haystack, String needle) { int lenS = haystack.length(); int lenN = needle.length(); if(lenN==0) return 0; int[] next = new int[lenN]; // needle的前缀数组 最长公共前后缀 for(int i=1, j=0; i&amp;lt;lenN; i++) { // 更新needle的前缀数组 while(j&amp;gt;0 &amp;amp;&amp;amp; needle.charAt(i)!=needle.charAt(j)) { // 若next[i]与next[j]不相等 则next[i]&amp;lt;=next[i-1] j = next[j-1]; } if(needle.charAt(i)==needle.charAt(j)) // next[i]与next[j]相等 则next[i]=next[i-1]+1 j++; next[i] = j; // i为索引 j为前缀的长度 } for(int i=0, j=0; i&amp;lt;lenS; i++) { // 开始匹配 i为haystack索引 j为needle中已匹配字符数 while(j&amp;gt;0 &amp;amp;&amp;amp; haystack.</description>
+    </item>
+    
+  </channel>
+</rss>

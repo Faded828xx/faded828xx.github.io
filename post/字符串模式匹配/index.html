@@ -56,19 +56,59 @@
 
 <div class="row-fluid navmargin">
     <div class="page-header">
-        <h1>About - Sat, Apr 17, 2021</h1>
+        <h1>字符串模式匹配 - Tue, Apr 20, 2021</h1>
     </div>
-    <p class="lead">Joaquin Zheng, a sophomore in CS, NJUPT. Hope to be a software develop engineer some day, and keep coding to achieve this. I have a nice girlfriend who always encourages me to keep studying, I cannot appreciate her too much. Hope we can move on together.</p>
-    <p>Social links:
-<a href="https://github.com/Faded828xx">Github</a>
-<a href="https://leetcode-cn.com/u/Faded828x">Leetcode</a>
-<a href="cnblogs.com/Faded828x">博客园</a></p>
-<p>Wechat: Faded828x</p>
-<p>Email: <a href="mailto:zhengyouheng732@gmail.com">zhengyouheng732@gmail.com</a></p>
-<p>Tags which I&rsquo;m interested in are listed as follows:</p>
-<p>tech: blockchain algorithm</p>
-<p>entertainment: movie anime</p>
-
+    <p class="lead"></p>
+    <p>字符串模式匹配问题再经典不过了，暴力和API调用就不再赘述了。之前学的是RK算法，用的是Hash，还看了Java的indexOf源码，今天正好力扣每日一题又刷到，来学习大名鼎鼎的KMP算法。直接上代码：</p>
+<pre><code>// KMP字符串匹配 利用前缀数组 当不匹配时 忽略已匹配字符中的相同前后缀
+    public int strStr(String haystack, String needle) {
+        int lenS = haystack.length();
+        int lenN = needle.length();
+        if(lenN==0) return 0;
+        int[] next = new int[lenN]; // needle的前缀数组 最长公共前后缀
+        for(int i=1, j=0; i&lt;lenN; i++) {    // 更新needle的前缀数组
+            while(j&gt;0 &amp;&amp; needle.charAt(i)!=needle.charAt(j)) {   // 若next[i]与next[j]不相等 则next[i]&lt;=next[i-1]
+                j = next[j-1];
+            }
+            if(needle.charAt(i)==needle.charAt(j))  // next[i]与next[j]相等 则next[i]=next[i-1]+1
+                j++;
+            next[i] = j;    // i为索引 j为前缀的长度
+        }
+        for(int i=0, j=0; i&lt;lenS; i++) {    // 开始匹配 i为haystack索引 j为needle中已匹配字符数
+            while(j&gt;0 &amp;&amp; haystack.charAt(i)!=needle.charAt(j)) {    // 不等则前缀对齐 重新比较
+                j = next[j-1];
+            }
+            if(haystack.charAt(i)==needle.charAt(j))    // needle中匹配下一字符
+                j++;
+            if(j==lenN) // 匹配成功
+                return i - j + 1;
+        }
+        return -1;
+    }
+</code></pre><p>对于needle生成等长的前缀数组，以首元素到索引元素为字符串，记录最长公共前后缀。当haystack与needle匹配失败时，将对应字符处的，haystack中后缀与needle中前缀对齐，从而重复利用之前匹配成功的字符。难点在于前缀数组的生成。</p>
+<p>Sunday算法代码：（这个版本自己写的 可能很烂）</p>
+<pre><code>// Sunday算法 记匹配失败字符后一位元素为cur 在needle找到cur最后出现的索引 将其与cur对齐并匹配 而匹配字符串的首索引的跳转需要偏移表来实现
+    // 该偏移表同KMP算法中的前缀数组一样 仅与needle有关
+    public static int strStr2(String haystack, String needle) {
+        int lenS = haystack.length();
+        int lenN = needle.length();
+        if(lenN==0) return 0;
+        int[] offset = new int[26]; // 偏移表初始化为lenN+1
+        Arrays.fill(offset, lenN+1);
+        for(int i=0; i&lt;lenN; i++) { // 只有小写字符 可以用26位数组代替哈希表
+            int j = needle.charAt(i) - 'a';
+            offset[j] = lenN - i;
+        }
+        int index = 0;
+        while(index&lt;=lenS-lenN) {
+            if(haystack.substring(index, index+lenN).equals(needle))
+                return index;
+            if(index&gt;=lenS-lenN) return -1;
+            index += offset[haystack.charAt(index+lenN)-'a'];   // 匹配失败 偏移
+        }
+        return -1;
+    }
+</code></pre>
     <h4><a href="https://faded828xx.github.io">Back to Home</a></h4>
 </div>
 
