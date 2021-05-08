@@ -6,7 +6,17 @@
     <description>Recent content on Faded828xx Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Apr 2021 16:49:37 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 May 2021 14:23:16 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode1723完成所有工作的最短时间</title>
+      <link>https://faded828xx.github.io/post/leetcode1723%E5%AE%8C%E6%88%90%E6%89%80%E6%9C%89%E5%B7%A5%E4%BD%9C%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4/</link>
+      <pubDate>Sat, 08 May 2021 14:23:16 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/leetcode1723%E5%AE%8C%E6%88%90%E6%89%80%E6%9C%89%E5%B7%A5%E4%BD%9C%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4/</guid>
+      <description>五一去苏州玩了，然后回了趟家。最近在读CSAPP，博客落了一段时间。GoLang啥时候能捡起来啊 手动/facepalm 这里贴一篇力扣的每日一题，是道困难题。
+public static int res = Integer.MAX_VALUE; public static int minimumTimeRequired(int[] jobs, int k) { backtrack(jobs, 0, new int[k], 0); return res; } /** * @param jobs 工作量 * @param jobIndex 当前待分配工作索引 * @param jobTime 员工工作分配 * @param curMax 当前分配情况的res值 */ public static void backtrack(int[] jobs, int jobIndex, int[] jobTime, int curMax) { if (jobIndex == jobs.length) { res = Math.min(res, curMax); return; } // 无序分配 因此多个员工分配量都为0时 任选其一即可 boolean flag = true; for (int i = 0; i &amp;lt; jobTime.</description>
+    </item>
+    
     <item>
       <title>背包问题一</title>
       <link>https://faded828xx.github.io/post/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E4%B8%80/</link>

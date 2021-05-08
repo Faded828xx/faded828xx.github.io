@@ -53,37 +53,55 @@
         </div>
     </div>
 </nav><div id="content" class="container">
-<article class="row-fluid navmargin">
-    <header class="page-header">
-        <h1>Tags</h1>
-    </header>
-    
-    
-</article>
-<ul>
 
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>Leetcode1723完成所有工作的最短时间 - Sat, May 8, 2021</h1>
+    </div>
+    <p class="lead"></p>
+    <p>五一去苏州玩了，然后回了趟家。最近在读CSAPP，博客落了一段时间。GoLang啥时候能捡起来啊 手动/facepalm
+这里贴一篇力扣的每日一题，是道困难题。</p>
+<pre><code>public static int res = Integer.MAX_VALUE;
 
-    <li>
-        <a href="https://faded828xx.github.io/tags/algorithm/">2021-05-08 | algorithm</a>
-    </li>
+    public static int minimumTimeRequired(int[] jobs, int k) {
+        backtrack(jobs, 0, new int[k], 0);
+        return res;
+    }
 
-    <li>
-        <a href="https://faded828xx.github.io/tags/leetcode/">2021-05-08 | leetcode</a>
-    </li>
+    /**
+     * @param jobs 工作量
+     * @param jobIndex 当前待分配工作索引
+     * @param jobTime  员工工作分配
+     * @param curMax   当前分配情况的res值
+     */
+    public static void backtrack(int[] jobs, int jobIndex, int[] jobTime, int curMax) {
+        if (jobIndex == jobs.length) {
+            res = Math.min(res, curMax);
+            return;
+        }
+        // 无序分配 因此多个员工分配量都为0时 任选其一即可
+        boolean flag = true;
+        for (int i = 0; i &lt; jobTime.length; i++) {
+            if (jobTime[i] == 0) {
+                if (!flag) return;
+                flag = false;
+            }
+            jobTime[i] += jobs[jobIndex];
+            if (jobTime[i] &lt;= res) {
+                backtrack(jobs, jobIndex + 1, jobTime, Math.max(curMax, jobTime[i]));
+            }
+            jobTime[i] -= jobs[jobIndex];
+        }
+    }
 
-    <li>
-        <a href="https://faded828xx.github.io/tags/python/">2021-04-18 | python</a>
-    </li>
+    public static void main(String[] args) {
+        int[] jobs = new int[]{1, 2, 4, 7, 8};
+        System.out.println(minimumTimeRequired(jobs, 2));
+    }
+</code></pre>
+    <h4><a href="https://faded828xx.github.io">Back to Home</a></h4>
+</div>
 
-    <li>
-        <a href="https://faded828xx.github.io/tags/%E7%88%AC%E8%99%AB/">2021-04-18 | 爬虫</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/tags/hugo/">2021-04-16 | Hugo</a>
-    </li>
-
-</ul>
 
         </div><footer class="container">
     <hr class="soften">
