@@ -53,25 +53,63 @@
         </div>
     </div>
 </nav><div id="content" class="container">
-<article class="row-fluid navmargin">
-    <header class="page-header">
-        <h1>爬虫</h1>
-    </header>
-    
-    
-</article>
-<ul>
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>豆瓣scrapy - Thu, May 13, 2021</h1>
+    </div>
+    <p class="lead"></p>
+    <p>用scrapy实现先前的豆瓣爬虫，这里爬了top250，但是结果不是预期的顺序。</p>
+<pre><code>import scrapy
+from scrapy_demo.items import MovieItem
 
 
-    <li>
-        <a href="/post/%E8%B1%86%E7%93%A3scrapy/">2021-05-13 | 豆瓣scrapy</a>
-    </li>
+class DoubanSpider(scrapy.Spider):
+    name = 'douban'
+    allowed_domains = ['douban.com']
+    start_urls = [
+        'https://movie.douban.com/top250',
+    ]
 
-    <li>
-        <a href="/post/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%88%AC%E8%99%AB/">2021-04-18 | 豆瓣小爬虫</a>
-    </li>
+    def parse(self, response):
+        for i in range(0, 9):
+            url = response.urljoin('?start=' + str(25 * i))
+            yield scrapy.Request(url, callback=self.parse_dir_contents)
 
-</ul>
+    def parse_dir_contents(self, response):
+        # file = 'movie.html'  # 新建html页面并将爬取到的页面写入其中
+        # open(file, 'w').write(str(response.body.decode('utf-8')))
+        # html = str(response.body.decode('utf-8'))
+        # bs = bs4.BeautifulSoup(html, 'html.parser')
+        # for movie in bs.find_all('div', class_='item'):
+        #     item = MovieItem()
+        #     movie = str(movie)  # 每部电影信息
+        #     movielink = re.compile(r'&lt;a href=&quot;(.*?)&quot;')  # 电影链接正则
+        #     moviename = re.compile(r'&lt;span class=&quot;title&quot;&gt;(.*)&lt;/span&gt;')  # 电影名正则
+        #     movierank = re.compile(r'&lt;em class=&quot;&quot;&gt;(.*)&lt;/em&gt;')  # 电影排名正则
+        #     rank = re.findall(movierank, movie)[0]
+        #     link = re.findall(movielink, movie)[0]
+        #     name = re.findall(moviename, movie)
+        #     item['rank'] = rank
+        #     item['link'] = link
+        #     item['Cname'] = name[0]
+        #     if len(name) == 2:
+        #         item['Oname'] = name[1].replace('\xa0/\xa0', '')
+        #     else:
+        #         item['Oname'] = ' '
+        #     yield item
+        for movie in response.xpath('//div[@class=&quot;item&quot;]'):
+            item = MovieItem()
+            item['rank'] = movie.xpath('div[@class=&quot;pic&quot;]/em/text()').extract()
+            item['link'] = movie.xpath('div[@class=&quot;info&quot;]/div[@class=&quot;hd&quot;]/a/@href').extract()
+            item['Cname'] = movie.xpath('div[@class=&quot;info&quot;]/div[@class=&quot;hd&quot;]/a/span[1]/text()').extract()
+            item['Oname'] = movie.xpath('div[@class=&quot;info&quot;]/div[@class=&quot;hd&quot;]/a/span[2]/text()').extract()
+            item['star'] = movie.xpath('div[@class=&quot;info&quot;]/div[@class=&quot;bd&quot;]/div/span[2]/text()').extract()
+            yield item
+</code></pre>
+    <h4><a href="https://faded828xx.github.io">Back to Home</a></h4>
+</div>
+
 
         </div><footer class="container">
     <hr class="soften">

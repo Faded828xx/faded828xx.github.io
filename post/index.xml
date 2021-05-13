@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Faded828xx Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 08 May 2021 14:23:16 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 May 2021 22:10:36 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>豆瓣scrapy</title>
+      <link>https://faded828xx.github.io/post/%E8%B1%86%E7%93%A3scrapy/</link>
+      <pubDate>Thu, 13 May 2021 22:10:36 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/%E8%B1%86%E7%93%A3scrapy/</guid>
+      <description>用scrapy实现先前的豆瓣爬虫，这里爬了top250，但是结果不是预期的顺序。
+import scrapy from scrapy_demo.items import MovieItem class DoubanSpider(scrapy.Spider): name = &#39;douban&#39; allowed_domains = [&#39;douban.com&#39;] start_urls = [ &#39;https://movie.douban.com/top250&#39;, ] def parse(self, response): for i in range(0, 9): url = response.urljoin(&#39;?start=&#39; + str(25 * i)) yield scrapy.Request(url, callback=self.parse_dir_contents) def parse_dir_contents(self, response): # file = &#39;movie.html&#39; # 新建html页面并将爬取到的页面写入其中 # open(file, &#39;w&#39;).write(str(response.body.decode(&#39;utf-8&#39;))) # html = str(response.body.decode(&#39;utf-8&#39;)) # bs = bs4.BeautifulSoup(html, &#39;html.parser&#39;) # for movie in bs.find_all(&#39;div&#39;, class_=&#39;item&#39;): # item = MovieItem() # movie = str(movie) # 每部电影信息 # movielink = re.</description>
+    </item>
+    
     <item>
       <title>Leetcode1723完成所有工作的最短时间</title>
       <link>https://faded828xx.github.io/post/leetcode1723%E5%AE%8C%E6%88%90%E6%89%80%E6%9C%89%E5%B7%A5%E4%BD%9C%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4/</link>
