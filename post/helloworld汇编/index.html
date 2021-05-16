@@ -56,109 +56,44 @@
 
 <div class="row-fluid navmargin">
     <div class="page-header">
-        <h1>Love Tang Forever!</h1>
+        <h1>Helloworld汇编 - Sun, May 16, 2021</h1>
     </div>
-</div>
+    <p class="lead"></p>
+    <p>汇编语言是下学期的课，CSAPP之前看了汇编，是x86的CPU，就没在m1上跑，今天试了一下，当然跑出来的肯定是arm汇编。
+terminal指令（开发者命令行自带clang编译器）:</p>
+<pre><code>faded828x@promote ~ % cd desktop
+faded828x@promote desktop % vim test.c
+faded828x@promote desktop % clang test.c -S -o test.s
+faded828x@promote desktop % vim test.s
+faded828x@promote desktop % clang test.s -o test.o
+faded828x@promote desktop % ./test.o
+Hello World!%                                                                   faded828x@promote desktop % 
+</code></pre><p>test.s:</p>
+<pre><code>        .p2align        2
+_main:                                  ; @main
+        .cfi_startproc
+; %bb.0:
+        stp     x29, x30, [sp, #-16]!           ; 16-byte Folded Spill
+        mov     x29, sp
+        .cfi_def_cfa w29, 16
+        .cfi_offset w30, -8
+        .cfi_offset w29, -16
+        adrp    x0, l_.str@PAGE
+        add     x0, x0, l_.str@PAGEOFF
+        bl      _printf
+        mov     w8, #0
+        mov     x0, x8
+        ldp     x29, x30, [sp], #16             ; 16-byte Folded Reload
+        ret
+        .cfi_endproc
+                                        ; -- End function
+        .section        __TEXT,__cstring,cstring_literals
+l_.str:                                 ; @.str
+        .asciz  &quot;Hello World!&quot;
 
-<div class="row-fluid">
-    <div class="span9 bs-docs-sidebar">
-        <p class="lead">Welcome to the early 90s! Hope we can keep coding together!</p>
-        <p></p>
-        <p>A sophomore in school of CS, NJUPT. My Drean is to Make a lot of Money!</p>
-        <p></p>
-        <hr class="soften">
-        <p></p>
-        <h1>Blog posts</h1>
-        <ul>
-            
-            
-            <li><a href="https://faded828xx.github.io/post/helloworld%E6%B1%87%E7%BC%96/">2021-05-16 | Helloworld汇编</a></li>
-            
-            
-            
-            <li><a href="https://faded828xx.github.io/post/%E8%B1%86%E7%93%A3scrapy/">2021-05-13 | 豆瓣scrapy</a></li>
-            
-            
-            
-            <li><a href="https://faded828xx.github.io/post/leetcode1723%E5%AE%8C%E6%88%90%E6%89%80%E6%9C%89%E5%B7%A5%E4%BD%9C%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4/">2021-05-08 | Leetcode1723完成所有工作的最短时间</a></li>
-            
-            
-            
-            <li><a href="https://faded828xx.github.io/post/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E4%B8%80/">2021-04-25 | 背包问题一</a></li>
-            
-            
-            
-            <li><a href="https://faded828xx.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">2021-04-20 | 字符串模式匹配</a></li>
-            
-            
-            
-            <li><a href="https://faded828xx.github.io/post/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%88%AC%E8%99%AB/">2021-04-18 | 豆瓣小爬虫</a></li>
-            
-            
-            
-            
-            
-            <li><a href="https://faded828xx.github.io/post/hugo%E5%BB%BA%E7%AB%99/">2021-04-16 | Hugo建站</a></li>
-            
-            
-        </ul>
-    </div>
-
-    <div class="span3 bs-docs-sidebar">
-        <h1>Categories</h1>
-        <ul class="nav nav-list bs-docs-sidenav">
-            
-<li>
-    <a href="https://faded828xx.github.io/categories/%E6%B1%87%E7%BC%96/">汇编</a>
-</li>
-
-<li>
-    <a href="https://faded828xx.github.io/categories/%E7%88%AC%E8%99%AB/">爬虫</a>
-</li>
-
-<li>
-    <a href="https://faded828xx.github.io/categories/leetcode/">leetcode</a>
-</li>
-
-<li>
-    <a href="https://faded828xx.github.io/categories/algorithm/">algorithm</a>
-</li>
-
-<li>
-    <a href="https://faded828xx.github.io/categories/hugo/">Hugo</a>
-</li>
-
-        </ul>
-        <p></p>
-        <h1>Tags</h1>
-        <ul class="nav nav-list bs-docs-sidenav">
-            
-<li>
-    <a href="https://faded828xx.github.io/tags/%E6%B1%87%E7%BC%96/">汇编</a>
-</li>
-
-<li>
-    <a href="https://faded828xx.github.io/tags/python/">python</a>
-</li>
-
-<li>
-    <a href="https://faded828xx.github.io/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
-</li>
-
-<li>
-    <a href="https://faded828xx.github.io/tags/algorithm/">algorithm</a>
-</li>
-
-<li>
-    <a href="https://faded828xx.github.io/tags/leetcode/">leetcode</a>
-</li>
-
-<li>
-    <a href="https://faded828xx.github.io/tags/hugo/">Hugo</a>
-</li>
-
-        </ul>
-    </div>
+.subsections_via_symbols
+</code></pre>
+    <h4><a href="https://faded828xx.github.io">Back to Home</a></h4>
 </div>
 
 

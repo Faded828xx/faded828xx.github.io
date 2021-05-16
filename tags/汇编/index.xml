@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>汇编 on Faded828xx Blog</title>
+    <link>https://faded828xx.github.io/tags/%E6%B1%87%E7%BC%96/</link>
+    <description>Recent content in 汇编 on Faded828xx Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 16 May 2021 22:56:13 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/tags/%E6%B1%87%E7%BC%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Helloworld汇编</title>
+      <link>https://faded828xx.github.io/post/helloworld%E6%B1%87%E7%BC%96/</link>
+      <pubDate>Sun, 16 May 2021 22:56:13 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/helloworld%E6%B1%87%E7%BC%96/</guid>
+      <description>汇编语言是下学期的课，CSAPP之前看了汇编，是x86的CPU，就没在m1上跑，今天试了一下，当然跑出来的肯定是arm汇编。 terminal指令（开发者命令行自带clang编译器）:
+faded828x@promote ~ % cd desktop faded828x@promote desktop % vim test.c faded828x@promote desktop % clang test.c -S -o test.s faded828x@promote desktop % vim test.s faded828x@promote desktop % clang test.s -o test.o faded828x@promote desktop % ./test.o Hello World!% faded828x@promote desktop % test.s:
+ .p2align 2 _main: ; @main .cfi_startproc ; %bb.0: stp x29, x30, [sp, #-16]! ; 16-byte Folded Spill mov x29, sp .cfi_def_cfa w29, 16 .cfi_offset w30, -8 .cfi_offset w29, -16 adrp x0, l_.</description>
+    </item>
+    
+  </channel>
+</rss>
