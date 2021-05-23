@@ -6,7 +6,17 @@
     <description>Recent content in leetcode on Faded828xx Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 08 May 2021 14:23:16 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 May 2021 23:33:59 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode1707与数组中元素的最大异或值</title>
+      <link>https://faded828xx.github.io/post/leetcode1707%E4%B8%8E%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%83%E7%B4%A0%E7%9A%84%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%80%BC/</link>
+      <pubDate>Sun, 23 May 2021 23:33:59 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/leetcode1707%E4%B8%8E%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%83%E7%B4%A0%E7%9A%84%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%80%BC/</guid>
+      <description>这两个月的刷题还挺不错的，最近好多异或题。 力扣1707
+package BitManipulation; import java.util.Arrays; import java.util.Comparator; //leetcode submit region begin(Prohibit modification and deletion) class MaximumXorWithAnElementFromArray1707 { // 先通过忽略不超过mi的方式来降维 具体还是看题解吧 主要是前缀树的思想 public static int[] maximizeXor(int[] nums, int[][] queries) { int len = queries.length; int[] res = new int[len]; Arrays.sort(nums); int[][] queryArr = new int[len][3]; for(int i=0; i&amp;lt;len; i++) { queryArr[i][0] = queries[i][0]; queryArr[i][1] = queries[i][1]; queryArr[i][2] = i; } Arrays.sort(queryArr, Comparator.comparingInt(ints -&amp;gt; ints[1])); int index = 0; Trie trie = new Trie(); for(int[] query : queryArr) { int x = query[0]; int m = query[1]; int id = query[2]; while(index&amp;lt;nums.</description>
+    </item>
+    
     <item>
       <title>Leetcode1723完成所有工作的最短时间</title>
       <link>https://faded828xx.github.io/post/leetcode1723%E5%AE%8C%E6%88%90%E6%89%80%E6%9C%89%E5%B7%A5%E4%BD%9C%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4/</link>

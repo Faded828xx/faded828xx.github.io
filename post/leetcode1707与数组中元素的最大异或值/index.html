@@ -53,25 +53,97 @@
         </div>
     </div>
 </nav><div id="content" class="container">
-<article class="row-fluid navmargin">
-    <header class="page-header">
-        <h1>leetcode</h1>
-    </header>
-    
-    
-</article>
-<ul>
 
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>Leetcode1707与数组中元素的最大异或值 - Sun, May 23, 2021</h1>
+    </div>
+    <p class="lead"></p>
+    <p>这两个月的刷题还挺不错的，最近好多异或题。
+<a href="https://leetcode-cn.com/problems/maximum-xor-with-an-element-from-array/">力扣1707</a></p>
+<pre><code>package BitManipulation;
 
-    <li>
-        <a href="/post/leetcode1707%E4%B8%8E%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%83%E7%B4%A0%E7%9A%84%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%80%BC/">2021-05-23 | Leetcode1707与数组中元素的最大异或值</a>
-    </li>
+import java.util.Arrays;
+import java.util.Comparator;
 
-    <li>
-        <a href="/post/leetcode1723%E5%AE%8C%E6%88%90%E6%89%80%E6%9C%89%E5%B7%A5%E4%BD%9C%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4/">2021-05-08 | Leetcode1723完成所有工作的最短时间</a>
-    </li>
+//leetcode submit region begin(Prohibit modification and deletion)
+class MaximumXorWithAnElementFromArray1707 {
+    // 先通过忽略不超过mi的方式来降维 具体还是看题解吧 主要是前缀树的思想
+    public static int[] maximizeXor(int[] nums, int[][] queries) {
+        int len = queries.length;
+        int[] res = new int[len];
+        Arrays.sort(nums);
+        int[][] queryArr = new int[len][3];
+        for(int i=0; i&lt;len; i++) {
+            queryArr[i][0] = queries[i][0];
+            queryArr[i][1] = queries[i][1];
+            queryArr[i][2] = i;
+        }
+        Arrays.sort(queryArr, Comparator.comparingInt(ints -&gt; ints[1]));
+        int index = 0;
+        Trie trie = new Trie();
+        for(int[] query : queryArr) {
+            int x = query[0];
+            int m = query[1];
+            int id = query[2];
+            while(index&lt;nums.length &amp;&amp; nums[index]&lt;=m) {
+                trie.insert(nums[index]);
+                index++;
+            }
+            if(index==0) {
+                res[id] = -1;
+            } else {
+                res[id] = trie.getMaxXor(x);
+            }
+        }
+        return res;
+    }
 
-</ul>
+    public static void main(String[] args) {
+        int[] nums = new int[]{5,2,4,6,6,3};
+        int[][] queries = new int[][]{{12,4}, {8,1}, {6,3}};
+        System.out.println(Arrays.toString(maximizeXor(nums, queries)));
+    }
+}
+
+class Trie {
+
+    static final int L = 30;
+    Trie[] children = new Trie[2];
+
+    // 向字典树中插入新值
+    public void insert(int val) {
+        Trie node = this;
+        for (int i = L - 1; i &gt;= 0; i--) {
+            int bit = (val &gt;&gt; i) &amp; 1;
+            if (node.children[bit] == null)
+                node.children[bit] = new Trie();
+            node = node.children[bit];
+        }
+    }
+
+    // 在字典树中找到与val异或后最大值 并返回异或值
+    public int getMaxXor(int val) {
+        int res = 0;
+        Trie node = this;
+        for (int i = L - 1; i &gt;= 0; i--) {
+            int bit = (val &gt;&gt; i) &amp; 1;
+            if (node.children[bit ^ 1] != null) {
+                node = node.children[bit ^ 1];
+                res |= 1 &lt;&lt; i;
+            } else {
+                node = node.children[bit];
+            }
+        }
+        return res;
+    }
+}
+//leetcode submit region end(Prohibit modification and deletion)
+
+</code></pre>
+    <h4><a href="https://faded828xx.github.io">Back to Home</a></h4>
+</div>
+
 
         </div><footer class="container">
     <hr class="soften">
