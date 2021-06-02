@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on Faded828xx Blog</title>
+    <link>https://faded828xx.github.io/tags/golang/</link>
+    <description>Recent content in Golang on Faded828xx Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 02 Jun 2021 16:50:28 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go常量变量</title>
+      <link>https://faded828xx.github.io/post/go%E5%B8%B8%E9%87%8F%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Wed, 02 Jun 2021 16:50:28 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/go%E5%B8%B8%E9%87%8F%E5%8F%98%E9%87%8F/</guid>
+      <description>一个类型确定数字型常量所表示的值是不能溢出它的类型的表示范围的。 一个类型不确定数字型常量所表示的值是可以溢出它的默认类型的表示范围的。 当一个类型不确定数字常量值溢出它的默认类型的表示范围时，此数值不会被截断（亦即回绕）。 将一个非常量数字值转换为其它数字类型时，此非常量数字值可以溢出转化结果的类型。 在此转换中，当溢出发生时，转化结果为此非常量数字值的截断（亦即回绕）表示。
+总结下来就是：类型确定常量不能截断，因此不能溢出或者一些奇怪的强转，而变量可以强转来截断。这里所说的常量和变量都是指等号右边，大部分与等号左边无关。贴几个例子：
+// 三个类型不确定常量。 const n = 1 &amp;lt;&amp;lt; 64 // 默认类型为int const r = &#39;a&#39; + 0x7FFFFFFF // 默认类型为rune const x = 2e+308 // 默认类型为float64 const a uint8 = 256 // error: 256溢出uint8	与a是否const无关 const b = uint8(255) + uint8(1) // error: 256溢出uint8 与b是否const无关 const c = int8(-128) / int8(-1) // error: 128溢出int8 const a = -1.23 // 变量b的类型被推断为内置类型float64。 var b = a // error: 常量1.</description>
+    </item>
+    
+  </channel>
+</rss>
