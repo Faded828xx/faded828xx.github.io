@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计网 on Faded828xx Blog</title>
+    <link>https://faded828xx.github.io/categories/%E8%AE%A1%E7%BD%91/</link>
+    <description>Recent content in 计网 on Faded828xx Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 12 Jun 2021 10:16:54 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/categories/%E8%AE%A1%E7%BD%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>为什么使用ip地址</title>
+      <link>https://faded828xx.github.io/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8ip%E5%9C%B0%E5%9D%80/</link>
+      <pubDate>Sat, 12 Jun 2021 10:16:54 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8ip%E5%9C%B0%E5%9D%80/</guid>
+      <description>最近计算机网络的书看了不少，一直困扰的问题是既然有了mac地址，虽然有48bit，可能相比IPv4的32bit计算量会剧增，但是相比IPv6的128bit就没压力了吧。因此既然mac地址是绑定在物理设备上的，为什么不用mac地址来直接在网络中寻址。今天在“从实践学习TCP/IP协议”找到了答案： mac地址理论上可易于在局域网中通信，但在路由式网络中，mac地址不能跨越路由接口。即使跨越，固定mac地址不能在地址空间上引入逻辑结构，无法表示具体的物理位置。比如说，两台设备A和B位于不同城市，因为公网IP往往是固定位置的，为新加入子网的设备分配IP，因此路由寻址是无论AB位于哪个城市，其子网的位置都是易寻的，再到子网中找到具体位置。但是用mac地址的话，因为是直接寻址，就会出现AB一会在这个城市，一会在另一个城市，中间的转发设备就要实时更新转发方向，这无疑是自找麻烦。mac地址不能反映物理地址，而公网IP应该在某段时间内是固定位置的。</description>
+    </item>
+    
+  </channel>
+</rss>
