@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Faded828xx Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 12 Jun 2021 10:16:54 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Jun 2021 19:34:48 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode773 752 BFS模版</title>
+      <link>https://faded828xx.github.io/post/leetcode773-752-bfs%E6%A8%A1%E7%89%88/</link>
+      <pubDate>Sat, 26 Jun 2021 19:34:48 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/leetcode773-752-bfs%E6%A8%A1%E7%89%88/</guid>
+      <description>考试周了， 忙着复习， 贴两道算法题水水博客吧， 都是用的BFS模版。
+Leetcode752
+class OpenTheLock752 { public static int openLock(String[] deadends, String target) { int tar = Integer.parseInt(target); if (tar == 0) return 0; // target为0 无需变化 Set&amp;lt;Integer&amp;gt; dead = new HashSet&amp;lt;&amp;gt;(); Set&amp;lt;Integer&amp;gt; visited = new HashSet&amp;lt;&amp;gt;(); // 记忆化 防止死循环 for (String str : deadends) { // 感觉用整型好处理点 dead.add(Integer.parseInt(str)); } if (dead.contains(0)) // 0直接锁死 return -1; Deque&amp;lt;Integer&amp;gt; queue = new ArrayDeque&amp;lt;&amp;gt;(); // BFS queue.add(0); visited.add(0); int res = 0; while (!</description>
+    </item>
+    
     <item>
       <title>为什么使用ip地址</title>
       <link>https://faded828xx.github.io/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8ip%E5%9C%B0%E5%9D%80/</link>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>Faded828xx Blog</title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2022.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Courier; color: #88b966; -webkit-text-stroke: #88b966}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none; color: #9ba2b1; background-color: #1e2127; -webkit-text-stroke: 0px #9ba2b1}
+    span.s2 {font-kerning: none}
+    span.s3 {font-kerning: none; color: #dfb468; -webkit-text-stroke: 0px #dfb468}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1"><b>&lt;link rel=</b></span><span class="s2"><b>"shortcut icon"</b></span><span class="s1"><b> href=</b></span><span class="s2"><b>"favicon.ico"</b></span><span class="s1"><b> </b></span><span class="s3"><b>type</b></span><span class="s1"><b>=</b></span><span class="s2"><b>"image/x-icon"</b></span><span class="s1"><b> /&gt;</b></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+</body>
+</html>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></button>
+            <a class="brand" href="https://faded828xx.github.io">Faded828xx Blog</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                    
+                        
+                            <li>
+                                <a href="/about/">
+                                    
+                                    <span>About</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/post/">
+                                    
+                                    <span>All posts</span>
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav><div id="content" class="container">
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>Leetcode773 752 BFS模版 - Sat, Jun 26, 2021</h1>
+    </div>
+    <p class="lead"></p>
+    <p>考试周了， 忙着复习， 贴两道算法题水水博客吧， 都是用的BFS模版。</p>
+<p><a href="https://leetcode-cn.com/problems/open-the-lock/">Leetcode752</a></p>
+<pre><code>class OpenTheLock752 {
+    public static int openLock(String[] deadends, String target) {
+        int tar = Integer.parseInt(target);
+        if (tar == 0) return 0; // target为0 无需变化
+        Set&lt;Integer&gt; dead = new HashSet&lt;&gt;();
+        Set&lt;Integer&gt; visited = new HashSet&lt;&gt;(); // 记忆化 防止死循环
+        for (String str : deadends) {   // 感觉用整型好处理点
+            dead.add(Integer.parseInt(str));
+        }
+        if (dead.contains(0))   // 0直接锁死
+            return -1;
+        Deque&lt;Integer&gt; queue = new ArrayDeque&lt;&gt;();  // BFS
+        queue.add(0);
+        visited.add(0);
+        int res = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            res++;
+            for (int i = 0; i &lt; size; i++) {
+                int cur = queue.remove();
+                for (int j = 0; j &lt; 8; j++) {
+                    int next = change(cur, j);
+                    if (next == tar) return res;
+                    if (dead.contains(next) || visited.contains(next))
+                        continue;
+                    queue.add(next);
+                    visited.add(next);
+                }
+            }
+        }
+        return -1;
+    }
+
+    // 9-&gt;0 和 0-&gt;9需退位
+    public static int change(int src, int index) {
+        int[] method = new int[]{1, -1, 10, -10, 100, -100, 1000, -1000};
+        int res = src + method[index];
+        if (src % 10 == 9 &amp;&amp; index == 0) res -= 10;
+        else if (src % 10 == 0 &amp;&amp; index == 1) res += 10;
+        else if ((src / 10) % 10 == 9 &amp;&amp; index == 2) res -= 100;
+        else if ((src / 10) % 10 == 0 &amp;&amp; index == 3) res += 100;
+        else if ((src / 100) % 10 == 9 &amp;&amp; index == 4) res -= 1000;
+        else if ((src / 100) % 10 == 0 &amp;&amp; index == 5) res += 1000;
+        else if ((src / 1000) % 10 == 9 &amp;&amp; index == 6) res -= 10000;
+        else if ((src / 1000) % 10 == 0 &amp;&amp; index == 7) res += 10000;
+        return res;
+    }
+
+    public static void main(String[] args) {
+        String[] deadends = new String[]{&quot;8887&quot;, &quot;8889&quot;, &quot;8878&quot;, &quot;8898&quot;, &quot;8788&quot;, &quot;8988&quot;, &quot;7888&quot;, &quot;9888&quot;};
+        String target = &quot;8888&quot;;
+        System.out.println(openLock(deadends, target));
+    }
+}
+</code></pre><p><a href="https://leetcode-cn.com/problems/sliding-puzzle/">Leetcode773</a></p>
+<pre><code>class SlidingPuzzle773 {
+    // BFS很好想 主要是觉得数组不好处理 将其转换为string 主要就是写交换元素的方法 其他都是套模版
+    public static int slidingPuzzle(int[][] board) {
+        char[] boardArr = new char[6];
+        // board转换为String
+        for (int i = 0; i &lt; 6; i++) {
+            boardArr[i] = (char) (board[i / 3][i % 3] + '0');
+        }
+        String boardStr = new String(boardArr);
+        // 原串即目标串
+        if (boardStr.equals(&quot;123450&quot;)) return 0;
+        // BFS模版
+        Deque&lt;String&gt; queue = new ArrayDeque&lt;&gt;();
+        queue.add(boardStr);
+        Set&lt;String&gt; visited = new HashSet&lt;&gt;();
+        visited.add(boardStr);
+        int count = 0;  // 按层遍历 计数
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            count++;
+            for (int i = 0; i &lt; size; i++) {
+                String cur = queue.remove();
+                // 3种变换方法
+                for (int j = 0; j &lt; 3; j++) {
+                    String next = change(cur, j);
+                    if (next.equals(&quot;123450&quot;))
+                        return count;
+                    if (visited.add(next))
+                        queue.add(next);
+                }
+            }
+        }
+        return -1;
+    }
+
+    // 看错题 这里改了好几遍 将数组转为len为6的string
+    // 只能用0跟左右上下（3种）交换 且0索引在0和3时不能左换 在2和5时不能右换
+    public static String change(String board, int index) {  // index表示左右上下方法 就是喜欢这么命名😍
+        int index1 = 0; // 0索引
+        int index2 = 0; // 待交换元素索引
+        char[] res = board.toCharArray();
+        // 找到0索引
+        for (int i = 0; i &lt; 6; i++) {
+            if (res[i] == '0')
+                index1 = i;
+        }
+        // 不能左换和右换时返回原字符串
+        if ((index1 % 3 == 0 &amp;&amp; index == 0) || (index1 % 3 == 2 &amp;&amp; index == 1))
+            return board;
+        // 找到待交换元素索引
+        switch (index) {
+            case 0:
+                index2 = (index1 - 1) % 6;
+                break;
+            case 1:
+                index2 = (index1 + 1) % 6;
+                break;
+            case 2:
+                index2 = (index1 + 3) % 6;
+        }
+        // 实现元素交换
+        char tmp = res[index1];
+        res[index1] = res[index2];
+        res[index2] = tmp;
+        return new String(res);
+    }
+
+    public static void main(String[] args) {
+        int[][] board = new int[][]{{1, 2, 3}, {4, 5, 0}};
+        System.out.println(slidingPuzzle(board));
+    }
+}
+</code></pre>
+    <h4><a href="https://faded828xx.github.io">Back to Home</a></h4>
+</div>
+
+
+        </div><footer class="container">
+    <hr class="soften">
+    <p>
+
+    <a href="https://gitlab.com/maxlefou/hugo.386">hugo.386 theme by Max le Fou</a> | 
+
+&copy; 
+<a href="http://jmf-portfolio.netlify.com" target="_blank">
+    JM Fergeau
+</a>
+<span id="thisyear">2020</span>
+
+
+        | Built on <a href="//gohugo.io" target="_blank">Hugo</a>
+</p>
+    <p class="text-center">
+        
+        
+        
+        <a href="https://github.com/Faded828xx">GitHub</a> 
+        
+    </p>
+</footer>
+
+</body><link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/bootstrap-responsive.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap-386.js"></script>
+<script src="/js/bootstrap-transition.js"></script>
+<script src="/js/bootstrap-alert.js"></script>
+<script src="/js/bootstrap-modal.js"></script>
+<script src="/js/bootstrap-dropdown.js"></script>
+<script src="/js/bootstrap-scrollspy.js"></script>
+<script src="/js/bootstrap-tab.js"></script>
+<script src="/js/bootstrap-tooltip.js"></script>
+<script src="/js/bootstrap-popover.js"></script>
+<script src="/js/bootstrap-button.js"></script>
+<script src="/js/bootstrap-collapse.js"></script>
+<script src="/js/bootstrap-carousel.js"></script>
+<script src="/js/bootstrap-typeahead.js"></script>
+<script src="/js/bootstrap-affix.js"></script>
+<script>
+    _386 = { 
+        fastLoad: false ,
+        onePass: false , 
+        speedFactor: 1 
+    };
+
+    
+    function ThisYear() {
+        document.getElementById('thisyear').innerHTML = new Date().getFullYear();
+    };
+</script></html>
