@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL on Faded828xx Blog</title>
+    <link>https://faded828xx.github.io/tags/mysql/</link>
+    <description>Recent content in MySQL on Faded828xx Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 07 Jul 2021 16:09:36 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL索引</title>
+      <link>https://faded828xx.github.io/post/mysql%E7%B4%A2%E5%BC%95/</link>
+      <pubDate>Wed, 07 Jul 2021 16:09:36 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/mysql%E7%B4%A2%E5%BC%95/</guid>
+      <description>暑假的学习计划开始啦， 目标还不是很明确， 先挑重要的学吧， MySQL之前学过一点简单的SQL语句， 知道一些索引、事务的名词，仅此而已。从图书馆借了大佬推荐的“MySQL是怎样运行的”， 开始记录。MacOS上下载MySQL之后会在系统设置界面出现图标可以开启服务器， 挺好玩的。
+前面几章简单的提一下就行： MySQL程序分为服务器端和客户端，用不同的bin程序启动。table表等都存在服务器端， 客户端发出SQL命令， 服务器更新数据库后将结果返回。一般服务器会常开启，客户端随时接入连接或断开。navicat、IDEA内集成的数据库接口应该都是客户端。 字符编码和行格式不多说了。
+（第六章前） 索引：B+树， 节点里是一页，封装了多条目录记录（内结点）或者用户记录（table中的行，叶子结点）。同时是二叉平衡搜索树，相关操作O(lgn)复杂度。 聚簇索引根据主键排序，节点里包含主键，用户记录都存在聚簇索引的叶结点中，创建表时自动创建该索引。 二级索引依据其他列值排序，因为可能出现相同的情况，因此结点中还包含主键来辅助排序，叶结点找到主键后，通过聚簇索引的B+树进行回表操作来得到完整的用户记录。 联合索引在二级索引的基础上添加多个列值用来优先级排序。 感觉这里没讲清楚，先通过筛选条件来建立索引，然后能快速查询。
+一些SQL命令：
+create table ... ( ... INDEX idx_name (col1) ); alter table ... add INDEX idx_name (col1); alter table ... drop INDEX idx_name; </description>
+    </item>
+    
+  </channel>
+</rss>

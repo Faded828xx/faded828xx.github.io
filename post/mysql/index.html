@@ -53,49 +53,33 @@
         </div>
     </div>
 </nav><div id="content" class="container">
-<article class="row-fluid navmargin">
-    <header class="page-header">
-        <h1>Categories</h1>
-    </header>
-    
-    
-</article>
-<ul>
 
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>MySQL - Wed, Jul 7, 2021</h1>
+    </div>
+    <p class="lead"></p>
+    <p>暑假的学习计划开始啦， 目标还不是很明确， 先挑重要的学吧， MySQL之前学过一点简单的SQL语句， 知道一些索引、事务的名词，仅此而已。从图书馆借了大佬推荐的“MySQL是怎样运行的”， 开始记录。MacOS上下载MySQL之后会在系统设置界面出现图标可以开启服务器， 挺好玩的。</p>
+<p>前面几章简单的提一下就行：
+MySQL程序分为服务器端和客户端，用不同的bin程序启动。table表等都存在服务器端， 客户端发出SQL命令， 服务器更新数据库后将结果返回。一般服务器会常开启，客户端随时接入连接或断开。navicat、IDEA内集成的数据库接口应该都是客户端。
+字符编码和行格式不多说了。</p>
+<p>（第六章前）
+索引：B+树， 节点里是一页，封装了多条目录记录（内结点）或者用户记录（table中的行，叶子结点）。同时是二叉平衡搜索树，相关操作O(lgn)复杂度。
+聚簇索引根据主键排序，节点里包含主键，用户记录都存在聚簇索引的叶结点中，创建表时自动创建该索引。
+二级索引依据其他列值排序，因为可能出现相同的情况，因此结点中还包含主键来辅助排序，叶结点找到主键后，通过聚簇索引的B+树进行回表操作来得到完整的用户记录。
+联合索引在二级索引的基础上添加多个列值用来优先级排序。
+感觉这里没讲清楚，先通过筛选条件来建立索引，然后能快速查询。</p>
+<p>一些SQL命令：</p>
+<pre><code>create table ... (
+	...
+	INDEX idx_name (col1)
+);
+alter table ... add INDEX idx_name (col1);
+alter table ... drop INDEX idx_name;
+</code></pre>
+    <h4><a href="https://faded828xx.github.io">Back to Home</a></h4>
+</div>
 
-    <li>
-        <a href="https://faded828xx.github.io/categories/mysql/">2021-07-07 | MySQL</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/categories/leetcode/">2021-06-26 | leetcode</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/categories/%E8%AE%A1%E7%BD%91/">2021-06-12 | 计网</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/categories/golang/">2021-06-02 | Golang</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/categories/%E6%B1%87%E7%BC%96/">2021-05-16 | 汇编</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/categories/%E7%88%AC%E8%99%AB/">2021-05-13 | 爬虫</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/categories/algorithm/">2021-04-25 | algorithm</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/categories/hugo/">2021-04-16 | Hugo</a>
-    </li>
-
-</ul>
 
         </div><footer class="container">
     <hr class="soften">
