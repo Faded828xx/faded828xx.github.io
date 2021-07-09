@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backend on Faded828xx Blog</title>
+    <link>https://faded828xx.github.io/categories/backend/</link>
+    <description>Recent content in Backend on Faded828xx Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 09 Jul 2021 19:54:52 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/categories/backend/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tomcat部署Servlet</title>
+      <link>https://faded828xx.github.io/post/tomcat%E9%83%A8%E7%BD%B2servlet/</link>
+      <pubDate>Fri, 09 Jul 2021 19:54:52 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/tomcat%E9%83%A8%E7%BD%B2servlet/</guid>
+      <description>Tomcat与JavaWeb开发技术详解，有了基础后，去年囫囵吞枣学的一些零零散散的知识总算明白了点。 Servlet是web服务器与web应用之间的接口。服务器部分由开源软件构成，包括网络编程和路由功能，Tomcat通过请求参数找到servlet接口的具体实现类；应用部分往往是项目代码，包含了具体的servlet实现类。这个servlet规范由oracle公司制定，服务器和应用开发者通过实现这一规范来适配对方。 Servlet无非就是网络编程加路由，根据socket拿到http报文，解析request参数，通过反射创建具体的servlet实现类，将响应报文写入socket的response中。而之所以说JSP仍是servlet，因为servlet实现类写入response时需要频繁增加html字符串，因此根据request参数将一些变量传入jsp页面会显得清晰，只需维护变量即可，仍是向socket中写入response。
+IDEA中部署Tomcat： 注意Tomcat相关配置，servlet编译要添加tomcat中的jar库servlet-api（其他api好像也行），project structure - artifacts - output root 是编译文件结构。 代码参见github，目录如下： </description>
+    </item>
+    
+  </channel>
+</rss>
