@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Faded828xx Blog</title>
+    <link>https://faded828xx.github.io/categories/linux/</link>
+    <description>Recent content in linux on Faded828xx Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 13 Jul 2021 14:54:07 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu配置ssh</title>
+      <link>https://faded828xx.github.io/post/ubuntu%E9%85%8D%E7%BD%AEssh/</link>
+      <pubDate>Tue, 13 Jul 2021 14:54:07 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/ubuntu%E9%85%8D%E7%BD%AEssh/</guid>
+      <description>用parallel desktop安装了ubuntu的虚拟机，官网下载镜像。iso 白嫖试用版，好像可以改系统时间来一直续。
+虚拟机上网络改成wifi，因此和mac处于同一个局域网。mac上跑了tomcat服务器，ubuntu的tomcat能访问到。
+了解到ssh可以实现通信，一开始连接mac向ubuntu和ubuntu向mac都是connection refused，应该是ssh 的client默认是系统自带的，而server需要下载，于是ubuntu下载：
+下载： sudo apt install openssh-server 启动： sudo service ssh status（or start） mac终端连接： ssh faded828x@192.168.1.5 用transmit软件连接后能直接拖文件到ubuntu上，mac终端连接后可以直接在本地运行ubuntu终端命令。</description>
+    </item>
+    
+  </channel>
+</rss>
