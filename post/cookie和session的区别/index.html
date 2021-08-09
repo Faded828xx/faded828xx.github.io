@@ -53,85 +53,26 @@
         </div>
     </div>
 </nav><div id="content" class="container">
-<article class="row-fluid navmargin">
-    <header class="page-header">
-        <h1>Posts</h1>
-    </header>
-    
-    
-</article>
-<ul>
 
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>Cookie和session的区别 - Mon, Aug 9, 2021</h1>
+    </div>
+    <p class="lead"></p>
+    <p>最近在看shiro的认证授权，了解一下登陆方式。</p>
+<p>这里讲最基础的cookie和session。</p>
+<p>简单的概念就不再说了。</p>
+<p>session往往是服务器保存一个会话周期内的数据，比如验证码的流程：服务器生成一个验证码，将其保存到session中， 并将sessionID写入到响应体，客户端再发送请求时，附上sessionID和validateCode，服务器从对应的session中取出正确的验证码进行比较。如果没有session，很显然服务器不能将已发送出去的验证码和对应客户端一一匹配。而sessionID是服务器写入到cookie里的，客户端将cookie一起发送过去。cookie作为两者传输session的媒介，也有url的方式。</p>
+<p>rememberMe功能是为客户端写入另一个cookie，可以设置expire时间，在有效期内，客户端发送请求会附加这段cookie，例如登陆用户名密码等，相当于客户端保存了你的登陆信息。</p>
+<p>显而易见，session是服务器保存数据， 而cookie是客户端保存数据。</p>
+<p>拿登陆来举例子，session可以保证你在一个会话周期内不需要多次输入用户名密码，而cookie的这个时间为cookie的有效期。</p>
+<p>在一个会话周期内，服务器会将验证通过的用户信息保存到本地session中，然后对同一sessionID的请求，到对应的session中取出用户信息。如果服务器有多个节点，而彼此的session没有同步的话，可能会出现A服务器设置的session通过登陆后，再访问到B服务器时，发现该服务器上没有保存对应的Asession，因此在B服务器上需要重新认证。</p>
+<p>session是简化了服务器的认证过程，防止对一个会话周期内的同一客户端进行多次认证。而cookie是简化了客户端的认证过程，避免用户再敲一遍登陆信息，实际上中间也有一次认证，服务器将cookie解析成登陆信息完成认证。</p>
+<p>而Token是，服务器在认证后，拿到用户信息并生成Token（里面包含用户信息），然后将它发送给客户端，客户端每次请求时会带上这个Token。相当于 从session中 将用户信息保存到本地 然后根据请求再找数据；变成了 将这个信息直接交给客户端来保存， 然后服务器只需要解析这个Token就能直接拿到对应的用户信息了，当然中间会有服务器生成的签名来防止Token被伪造。存储用户信息的主体由服务器变成了客户端。</p>
 
-    <li>
-        <a href="https://faded828xx.github.io/post/cookie%E5%92%8Csession%E7%9A%84%E5%8C%BA%E5%88%AB/">2021-08-09 | Cookie和session的区别</a>
-    </li>
+    <h4><a href="https://faded828xx.github.io">Back to Home</a></h4>
+</div>
 
-    <li>
-        <a href="https://faded828xx.github.io/post/%E9%9D%A2%E8%AF%95%E4%B8%80/">2021-07-30 | 面试一</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/">2021-07-18 | 前后端分离</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/ubuntu%E9%85%8D%E7%BD%AEssh/">2021-07-13 | Ubuntu配置ssh</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/tomcat%E9%83%A8%E7%BD%B2servlet/">2021-07-09 | Tomcat部署Servlet</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/mysql%E7%B4%A2%E5%BC%95/">2021-07-07 | MySQL索引</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/leetcode773-752-bfs%E6%A8%A1%E7%89%88/">2021-06-26 | Leetcode773 752 BFS模版</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8ip%E5%9C%B0%E5%9D%80/">2021-06-12 | 为什么使用ip地址</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/go%E5%B8%B8%E9%87%8F%E5%8F%98%E9%87%8F/">2021-06-02 | Go常量变量</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/leetcode1707%E4%B8%8E%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%83%E7%B4%A0%E7%9A%84%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%80%BC/">2021-05-23 | Leetcode1707与数组中元素的最大异或值</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/helloworld%E6%B1%87%E7%BC%96/">2021-05-16 | Helloworld汇编</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E8%B1%86%E7%93%A3scrapy/">2021-05-13 | 豆瓣scrapy</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/leetcode1723%E5%AE%8C%E6%88%90%E6%89%80%E6%9C%89%E5%B7%A5%E4%BD%9C%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4/">2021-05-08 | Leetcode1723完成所有工作的最短时间</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E4%B8%80/">2021-04-25 | 背包问题一</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">2021-04-20 | 字符串模式匹配</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%88%AC%E8%99%AB/">2021-04-18 | 豆瓣小爬虫</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/hugo%E5%BB%BA%E7%AB%99/">2021-04-16 | Hugo建站</a>
-    </li>
-
-</ul>
 
         </div><footer class="container">
     <hr class="soften">
