@@ -6,7 +6,23 @@
     <description>Recent content in 面试 on Faded828xx Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 30 Jul 2021 13:34:05 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/categories/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Aug 2021 11:52:54 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/categories/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>面试二</title>
+      <link>https://faded828xx.github.io/post/%E9%9D%A2%E8%AF%95%E4%BA%8C/</link>
+      <pubDate>Tue, 10 Aug 2021 11:52:54 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/%E9%9D%A2%E8%AF%95%E4%BA%8C/</guid>
+      <description>开学遥遥无期，找了实习，在无锡东。
+笔试：实现俩后端接口 搭个框架 基本上就完成了 很简单
+面试：俩数据结构题
+int[] 和arraylist 区别 给定数组将元素0移到数组末尾
+讲下map 给定string 返回最左边的仅出现过一次的字符 people-&amp;gt;o
+这俩题很简单，和平时做的算法题比差多了。用的是codeinterview网站。
+然后问了一些后端的东西，登陆认证的流程，还好昨天看了这个，运气太好了哈哈。 关于判别是否重复认证过这一点，说了后端是通过session查看user信息，未认证就跳转登陆界面，前端不晓得。问了中间件redis等，说只看了理论，没在项目用过。
+反问了云服务是啥，员工都是学生？（大部分是实习生）</description>
+    </item>
+    
     <item>
       <title>面试一</title>
       <link>https://faded828xx.github.io/post/%E9%9D%A2%E8%AF%95%E4%B8%80/</link>
