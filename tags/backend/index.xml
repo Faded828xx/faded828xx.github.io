@@ -6,7 +6,21 @@
     <description>Recent content in Backend on Faded828xx Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Jul 2021 22:53:19 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/tags/backend/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Aug 2021 10:13:50 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/tags/backend/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git中ssh和https的对比</title>
+      <link>https://faded828xx.github.io/post/git%E4%B8%ADssh%E5%92%8Chttps%E7%9A%84%E5%AF%B9%E6%AF%94/</link>
+      <pubDate>Tue, 17 Aug 2021 10:13:50 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/git%E4%B8%ADssh%E5%92%8Chttps%E7%9A%84%E5%AF%B9%E6%AF%94/</guid>
+      <description>最近实习项目用的码云，因为是企业仓库，所以肯定得用内部账号才有权限。但是在push的时候一直有access denied的问题。
+之前clone用的https，应该输过用户名密码，但这次push的时候，idea也蹦出来密码输入，但一直报错。于是就试了ssh连接的方式，按照码云的文档，在本地生成ssh密钥后，~/.ssh路径下，复制到码云ssh密钥管理，然后就可以无障碍clone+push了。但是这时候还是报一些错误，最后觉得是账号本身权限的问题，就在下班前问了老大账号的权限，晚上回到家老大说是权限，给了权限后，能push上去了，白折腾了一下午。
+这里比较一下https和ssh两种git的连接方式：
+ssh：
+ 使用22端口，和连接远程服务器同理 通过本地生成ssh密钥再把共钥上传到服务器 速度慢 clone时需要配置ssh key push时因为已经配置了ssh key，因此不需要验证账户的用户名密码 由于clone时就得通过key来验证身份，因此不利于匿名访问，适合内部项目，有权限的项目成员可以自由实现clone和push操作  https：
+ 使用443端口 通过用户名密码授权 速度快 clone时如果没有权限限制，可以直接克隆，无需验证 push时显然是需要验证的，但是本地会有凭证管理器来自动保存一些用户名密码，有时候权限错误可能是因为用的还是之前保存的账号，需要到keychain access 里修改一下 由于clone时可以不验证，因此利于匿名访问  </description>
+    </item>
+    
     <item>
       <title>前后端分离</title>
       <link>https://faded828xx.github.io/post/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/</link>

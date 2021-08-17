@@ -53,93 +53,37 @@
         </div>
     </div>
 </nav><div id="content" class="container">
-<article class="row-fluid navmargin">
-    <header class="page-header">
-        <h1>Posts</h1>
-    </header>
-    
-    
-</article>
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>Git中ssh和https的对比 - Tue, Aug 17, 2021</h1>
+    </div>
+    <p class="lead"></p>
+    <p>最近实习项目用的码云，因为是企业仓库，所以肯定得用内部账号才有权限。但是在push的时候一直有access denied的问题。</p>
+<p>之前clone用的https，应该输过用户名密码，但这次push的时候，idea也蹦出来密码输入，但一直报错。于是就试了ssh连接的方式，按照码云的文档，在本地生成ssh密钥后，~/.ssh路径下，复制到码云ssh密钥管理，然后就可以无障碍clone+push了。但是这时候还是报一些错误，最后觉得是账号本身权限的问题，就在下班前问了老大账号的权限，晚上回到家老大说是权限，给了权限后，能push上去了，白折腾了一下午。</p>
+<p>这里比较一下https和ssh两种git的连接方式：</p>
+<p>ssh：</p>
 <ul>
-
-
-    <li>
-        <a href="https://faded828xx.github.io/post/git%E4%B8%ADssh%E5%92%8Chttps%E7%9A%84%E5%AF%B9%E6%AF%94/">2021-08-17 | Git中ssh和https的对比</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E9%9D%A2%E8%AF%95%E4%BA%8C/">2021-08-10 | 面试二</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/cookie%E5%92%8Csession%E7%9A%84%E5%8C%BA%E5%88%AB/">2021-08-09 | Cookie和session的区别</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E9%9D%A2%E8%AF%95%E4%B8%80/">2021-07-30 | 面试一</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/">2021-07-18 | 前后端分离</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/ubuntu%E9%85%8D%E7%BD%AEssh/">2021-07-13 | Ubuntu配置ssh</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/tomcat%E9%83%A8%E7%BD%B2servlet/">2021-07-09 | Tomcat部署Servlet</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/mysql%E7%B4%A2%E5%BC%95/">2021-07-07 | MySQL索引</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/leetcode773-752-bfs%E6%A8%A1%E7%89%88/">2021-06-26 | Leetcode773 752 BFS模版</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8ip%E5%9C%B0%E5%9D%80/">2021-06-12 | 为什么使用ip地址</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/go%E5%B8%B8%E9%87%8F%E5%8F%98%E9%87%8F/">2021-06-02 | Go常量变量</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/leetcode1707%E4%B8%8E%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%83%E7%B4%A0%E7%9A%84%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%80%BC/">2021-05-23 | Leetcode1707与数组中元素的最大异或值</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/helloworld%E6%B1%87%E7%BC%96/">2021-05-16 | Helloworld汇编</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E8%B1%86%E7%93%A3scrapy/">2021-05-13 | 豆瓣scrapy</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/leetcode1723%E5%AE%8C%E6%88%90%E6%89%80%E6%9C%89%E5%B7%A5%E4%BD%9C%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4/">2021-05-08 | Leetcode1723完成所有工作的最短时间</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E4%B8%80/">2021-04-25 | 背包问题一</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">2021-04-20 | 字符串模式匹配</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%88%AC%E8%99%AB/">2021-04-18 | 豆瓣小爬虫</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/hugo%E5%BB%BA%E7%AB%99/">2021-04-16 | Hugo建站</a>
-    </li>
-
+<li>使用22端口，和连接远程服务器同理</li>
+<li>通过本地生成ssh密钥再把共钥上传到服务器</li>
+<li>速度慢</li>
+<li>clone时需要配置ssh key</li>
+<li>push时因为已经配置了ssh key，因此不需要验证账户的用户名密码</li>
+<li>由于clone时就得通过key来验证身份，因此不利于匿名访问，适合内部项目，有权限的项目成员可以自由实现clone和push操作</li>
 </ul>
+<p>https：</p>
+<ul>
+<li>使用443端口</li>
+<li>通过用户名密码授权</li>
+<li>速度快</li>
+<li>clone时如果没有权限限制，可以直接克隆，无需验证</li>
+<li>push时显然是需要验证的，但是本地会有凭证管理器来自动保存一些用户名密码，有时候权限错误可能是因为用的还是之前保存的账号，需要到keychain access 里修改一下</li>
+<li>由于clone时可以不验证，因此利于匿名访问</li>
+</ul>
+
+    <h4><a href="https://faded828xx.github.io">Back to Home</a></h4>
+</div>
+
 
         </div><footer class="container">
     <hr class="soften">
