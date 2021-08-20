@@ -6,7 +6,21 @@
     <description>Recent content on Faded828xx Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 17 Aug 2021 10:13:50 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Aug 2021 14:33:09 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker 构建镜像</title>
+      <link>https://faded828xx.github.io/post/docker-%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Fri, 20 Aug 2021 14:33:09 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/docker-%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/</guid>
+      <description>这两天实习做了项目部署，在别人的服务器上瞎折腾，没啥后顾之忧。
+之前项目部署是直接运行jar包的，在本地或服务器上用maven打包好后，扔到服务器上，执行 java -jar test.jar 命令即可。这是最简单的方式，当然扔到Tomcat服务器，本质上是一样的。
+这里就不说docker的优点了，因为真正的优点涉及到微服务之类，或者更多，我目前只能粗略体会到一点。
+项目jar包和环境制作镜像：
+FROM java:8 VOLUME /tmp COPY target/automail-0.0.1-SNAPSHOT.jar automail.jar EXPOSE 8087 ENTRYPOINT [&amp;quot;java&amp;quot;,&amp;quot;-jar&amp;quot;,&amp;quot;automail.jar&amp;quot;] 多级构建
+# 构建三个镜像 # base镜像为项目依赖 为该项目所有版本提供依赖 FROM openjdk:8 AS builderbase # install maven 3.5.4 # RUN wget https://www-us.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz -P /tmp COPY ./zyh/* /zyh/ ENV BRANCH_NAME=zyh_dev ENV PROJECT_REPO_URL=git@gitee.com:ultralpha/ultralphasys.git ENV PROJECT_REPO_NAME=ultralphasys RUN tar xf /zyh/apache-maven-3.5.4-bin.tar.gz -C /opt # clone repo and prepare most of the packages used in project locally RUN git -c core.</description>
+    </item>
+    
     <item>
       <title>Git中ssh和https的对比</title>
       <link>https://faded828xx.github.io/post/git%E4%B8%ADssh%E5%92%8Chttps%E7%9A%84%E5%AF%B9%E6%AF%94/</link>
