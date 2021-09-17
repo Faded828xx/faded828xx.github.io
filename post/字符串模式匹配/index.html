@@ -60,7 +60,7 @@
     </div>
     <p class="lead"></p>
     <p>字符串模式匹配问题再经典不过了，暴力和API调用就不再赘述了。之前学的是RK算法，用的是Hash，还看了Java的indexOf源码，今天正好力扣每日一题又刷到，来学习大名鼎鼎的KMP算法。直接上代码：</p>
-<pre><code>// KMP字符串匹配 利用前缀数组 当不匹配时 忽略已匹配字符中的相同前后缀
+<pre tabindex="0"><code>// KMP字符串匹配 利用前缀数组 当不匹配时 忽略已匹配字符中的相同前后缀
     public int strStr(String haystack, String needle) {
         int lenS = haystack.length();
         int lenN = needle.length();
@@ -87,7 +87,7 @@
     }
 </code></pre><p>对于needle生成等长的前缀数组，以首元素到索引元素为字符串，记录最长公共前后缀。当haystack与needle匹配失败时，将对应字符处的，haystack中后缀与needle中前缀对齐，从而重复利用之前匹配成功的字符。难点在于前缀数组的生成。</p>
 <p>Sunday算法代码：（这个版本自己写的 可能很烂）</p>
-<pre><code>// Sunday算法 记匹配失败字符后一位元素为cur 在needle找到cur最后出现的索引 将其与cur对齐并匹配 而匹配字符串的首索引的跳转需要偏移表来实现
+<pre tabindex="0"><code>// Sunday算法 记匹配失败字符后一位元素为cur 在needle找到cur最后出现的索引 将其与cur对齐并匹配 而匹配字符串的首索引的跳转需要偏移表来实现
     // 该偏移表同KMP算法中的前缀数组一样 仅与needle有关
     public static int strStr2(String haystack, String needle) {
         int lenS = haystack.length();

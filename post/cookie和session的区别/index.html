@@ -72,6 +72,8 @@
 <p>更新：
 看了项目，感觉token和之前理解的不太一样。这里记录一下。</p>
 <p>首次登陆时，服务器生成一个随机id标识客户端，将id签名得到token，并将id-user保存到本地redis，token返回给客户端。每次请求时客户端带上token，服务器解析token得到id，然后到redis里取数据。token里并没有有效的数据，而服务器还是要存储用户信息的。</p>
+<p>更新：</p>
+<p>最近学了点Spring security，对token有了进一步的了解。jwt包含三部分：header、payload、signature。其中header和payload都是base64/url编码，header包含签名算法，payload是信息的主体，包含用户信息。而signature则是签名，显然token并不对信息进行加密，可以直接解码得到信息主体。重点谈谈签名部分，这里包含许多算法，主要讲HS256，显然这就是个哈希函数，与常见的非对称数字签名不同，只有一个密钥，由服务器保管，由header、payload、key三部分取哈希得到该签名。当接受请求时，解析header中签名算法，并结合本地key，对前两部分签名，与token中签名比较，相等则说明该token是自己生成的。其他人由于得不到key，也就无法伪造哈希值作为签名。当然这里也有非对称算法，不展开讨论。</p>
 
     <h4><a href="https://faded828xx.github.io">Back to Home</a></h4>
 </div>

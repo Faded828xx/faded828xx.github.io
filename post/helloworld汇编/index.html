@@ -61,7 +61,7 @@
     <p class="lead"></p>
     <p>汇编语言是下学期的课，CSAPP之前看了汇编，是x86的CPU，就没在m1上跑，今天试了一下，当然跑出来的肯定是arm汇编。
 terminal指令（开发者命令行自带clang编译器）:</p>
-<pre><code>faded828x@promote ~ % cd desktop
+<pre tabindex="0"><code>faded828x@promote ~ % cd desktop
 faded828x@promote desktop % vim test.c
 faded828x@promote desktop % clang test.c -S -o test.s
 faded828x@promote desktop % vim test.s
@@ -69,7 +69,7 @@ faded828x@promote desktop % clang test.s -o test.o
 faded828x@promote desktop % ./test.o
 Hello World!%                                                                   faded828x@promote desktop % 
 </code></pre><p>test.s:</p>
-<pre><code>        .p2align        2
+<pre tabindex="0"><code>        .p2align        2
 _main:                                  ; @main
         .cfi_startproc
 ; %bb.0:

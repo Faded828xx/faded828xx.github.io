@@ -63,13 +63,13 @@
 <p>之前项目部署是直接运行jar包的，在本地或服务器上用maven打包好后，扔到服务器上，执行 java -jar test.jar 命令即可。这是最简单的方式，当然扔到Tomcat服务器，本质上是一样的。</p>
 <p>这里就不说docker的优点了，因为真正的优点涉及到微服务之类，或者更多，我目前只能粗略体会到一点。</p>
 <p>项目jar包和环境制作镜像：</p>
-<pre><code>FROM java:8
+<pre tabindex="0"><code>FROM java:8
 VOLUME /tmp
 COPY target/automail-0.0.1-SNAPSHOT.jar automail.jar
 EXPOSE 8087
 ENTRYPOINT [&quot;java&quot;,&quot;-jar&quot;,&quot;automail.jar&quot;]
 </code></pre><p>多级构建</p>
-<pre><code># 构建三个镜像
+<pre tabindex="0"><code># 构建三个镜像
 # base镜像为项目依赖 为该项目所有版本提供依赖
 FROM openjdk:8 AS builderbase
 # install maven 3.5.4
@@ -108,7 +108,7 @@ VOLUME /tmp
 COPY --from=builder /$PROJECT_REPO_NAME/target/automail-0.0.1-SNAPSHOT.jar automail.jar
 ENTRYPOINT [&quot;java&quot;,&quot;-XX:+UseG1GC&quot;,&quot;-Xms256m&quot;,&quot;-Xmx512m&quot;,&quot;-jar&quot;,&quot;automail.jar&quot;]
 </code></pre><p>构建镜像脚本</p>
-<pre><code>SERVER=&quot;simuvip.com&quot;
+<pre tabindex="0"><code>SERVER=&quot;simuvip.com&quot;
 TAG=&quot;zyh:base&quot;
 TAG1=&quot;zyh:build&quot;
 SVC_TAG=&quot;zyh:runtime&quot;
