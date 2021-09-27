@@ -6,7 +6,23 @@
     <description>Recent content on Faded828xx Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 20 Aug 2021 14:33:09 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Sep 2021 11:06:42 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>面试三</title>
+      <link>https://faded828xx.github.io/post/%E9%9D%A2%E8%AF%95%E4%B8%89/</link>
+      <pubDate>Mon, 27 Sep 2021 11:06:42 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/%E9%9D%A2%E8%AF%95%E4%B8%89/</guid>
+      <description>因为疫情，十月五号开学，可能还有两星期封校。从九月初就开始找南京的实习了，总结了些经验，发现自己是真菜啊。 有些贼坑的小公司就不说了，有意义的就三家。因为是给自己看的博客，所以公司名还是不匿了。
+一、南京莱克贝尔
+小公司吧，面试官应该是高学历大佬，技术总监，估计是最大的头头，问的都是基础知识吧，不太记得了，难度不大。奈何自己太菜，到头来只能去这家。是最早拿到的offer。
+二、Dimension5
+挺想去的，虽然也是小公司，但可以感觉比前一个体量大，离学校也比较近。面了一小时技术，问的全是项目，设计数据库表，吧啦吧啦，我当场懵逼啊，还让我画表的关系图，顶着摄像头给他看，真离谱啊。也是自己项目这方面确实不行，露馅了。Java基础问了一点，也就点到为止。直接挂了。
+三、杭州端点 base南京
+一轮笔试+两轮技术+HR 笔试挺简单，基础选择题。一面也还行，主要是Java基础+多线程+jvm。多线程刚学，jvm一点不会，跟面试官说了，也让过了。二面视频，各方面都问了，深入了一点，为啥用红黑树而不用avl，用B+树而不用红黑树 等等。感觉有近一半是不会的，面试官人也挺好，很棒！好像是技术专家。也是当场给过了。HR面感觉聊的还可以啊，问些乱七八糟的东西，兴趣、发展、学校经历之类的。过两天说挂了，需要沉淀，真的气哭了。可能是嫌大三上太年轻了吧，挺失落的，毕竟是体量稍大点的公司了。
+总的感觉就是，小公司更注重项目和实战能力，需要你直接上手干活，而稍大点的更在意基础，以后可能有机会面大厂，那还需要更基础的计网和OS以及算法了，再接再厉吧，小公司希望也能学到东西吧。 加油！ 真的面试失败，哭了好几次， 提前感受下找工作的艰难吧。 没有老唐真的很难撑下去啊！</description>
+    </item>
+    
     <item>
       <title>Docker 构建镜像</title>
       <link>https://faded828xx.github.io/post/docker-%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/</link>
