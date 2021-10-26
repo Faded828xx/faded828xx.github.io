@@ -53,69 +53,50 @@
         </div>
     </div>
 </nav><div id="content" class="container">
-<article class="row-fluid navmargin">
-    <header class="page-header">
-        <h1>Tags</h1>
-    </header>
-    
-    
-</article>
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>单调栈 Next Greater Number - Tue, Oct 26, 2021</h1>
+    </div>
+    <p class="lead"></p>
+    <p>如题，利用单调栈解决‘下一个更大的数’问题。</p>
+<p>[3,7,4,9,5,3,2,1] -&gt; [7,9,9,-1,-1,-1,-1,-1]</p>
+<p>用一个栈来维护递增序列，从后往前遍历，对当前数n，pop栈直到栈顶数top&gt;n，此时top即为下一个大于n的数，若栈为空且前一个栈顶数仍小于等于n，则不存在下一个大于n的数。</p>
 <ul>
-
-
-    <li>
-        <a href="https://faded828xx.github.io/tags/algorithm/">2021-10-26 | algorithm</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/tags/leetcode/">2021-10-26 | leetcode</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/tags/%E9%9D%A2%E8%AF%95/">2021-09-27 | 面试</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/tags/backend/">2021-08-20 | Backend</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/tags/linux/">2021-07-13 | linux</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/tags/java/">2021-07-09 | Java</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/tags/mysql/">2021-07-07 | MySQL</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/tags/%E8%AE%A1%E7%BD%91/">2021-06-12 | 计网</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/tags/golang/">2021-06-02 | Golang</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/tags/%E6%B1%87%E7%BC%96/">2021-05-16 | 汇编</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/tags/python/">2021-05-13 | python</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/tags/%E7%88%AC%E8%99%AB/">2021-05-13 | 爬虫</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/tags/hugo/">2021-04-16 | Hugo</a>
-    </li>
-
+<li>对于n和top之间的数，都需要弹栈，因为对n之前还未遍历的数，只关心比自己大的最近的数，而n和top之间的数都比n小，因此比n小就选n，否则从top开始选。</li>
+<li>若top是大于n的目标数，top是不需要弹栈的，因此每次取栈顶元素时，不需直接pop。</li>
+<li>对于循环数组的相同问题，可以换种角度：将原数组扩展两倍，即做两次同样的运算，同时通过取模来简化代码。</li>
 </ul>
+<p><a href="https://leetcode-cn.com/problems/next-greater-element-i/solution/dan-diao-zhan-jie-jue-next-greater-number-yi-lei-w/">leetcode496</a></p>
+<p>leetcode503 循环数组+单调栈</p>
+<pre tabindex="0"><code>public int[] nextGreaterElements(int[] nums) {
+        int l = nums.length;
+        int[] res = new int[l];
+        Deque&lt;Integer&gt; stack = new ArrayDeque&lt;&gt;();
+        // 循环数组 可以看成将原数组扩展两倍 因此做两遍
+        for(int i = 2 * l - 1; i &gt;= 0; i--) {
+            int n = nums[i%l];
+            boolean flag = false;
+            while(!stack.isEmpty()) {
+                int top = stack.peek();
+                if(top &gt; n) {
+                    flag = true;
+                    res[i%l] = top;
+                    break;
+                }
+                stack.pop();
+            }
+            if(!flag)
+                res[i%l] = -1;
+            stack.push(n);
+        }
+        return res;
+    }
+</code></pre><p>今天打算溜校的时候，发现保安在门口守着，很烦人。跟胡博打电话，让我在校写码，不知后续如何啊。 学校这波操作真的很烦人😡。</p>
+
+    <h4><a href="https://faded828xx.github.io">Back to Home</a></h4>
+</div>
+
 
         </div><footer class="container">
     <hr class="soften">

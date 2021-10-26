@@ -6,7 +6,21 @@
     <description>Recent content in leetcode on Faded828xx Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Jun 2021 19:34:48 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Oct 2021 09:48:09 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>单调栈 Next Greater Number</title>
+      <link>https://faded828xx.github.io/post/%E5%8D%95%E8%B0%83%E6%A0%88-next-greater-number/</link>
+      <pubDate>Tue, 26 Oct 2021 09:48:09 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/%E5%8D%95%E8%B0%83%E6%A0%88-next-greater-number/</guid>
+      <description>如题，利用单调栈解决‘下一个更大的数’问题。
+[3,7,4,9,5,3,2,1] -&amp;gt; [7,9,9,-1,-1,-1,-1,-1]
+用一个栈来维护递增序列，从后往前遍历，对当前数n，pop栈直到栈顶数top&amp;gt;n，此时top即为下一个大于n的数，若栈为空且前一个栈顶数仍小于等于n，则不存在下一个大于n的数。
+ 对于n和top之间的数，都需要弹栈，因为对n之前还未遍历的数，只关心比自己大的最近的数，而n和top之间的数都比n小，因此比n小就选n，否则从top开始选。 若top是大于n的目标数，top是不需要弹栈的，因此每次取栈顶元素时，不需直接pop。 对于循环数组的相同问题，可以换种角度：将原数组扩展两倍，即做两次同样的运算，同时通过取模来简化代码。  leetcode496
+leetcode503 循环数组+单调栈
+public int[] nextGreaterElements(int[] nums) { int l = nums.length; int[] res = new int[l]; Deque&amp;lt;Integer&amp;gt; stack = new ArrayDeque&amp;lt;&amp;gt;(); // 循环数组 可以看成将原数组扩展两倍 因此做两遍 for(int i = 2 * l - 1; i &amp;gt;= 0; i--) { int n = nums[i%l]; boolean flag = false; while(!stack.isEmpty()) { int top = stack.peek(); if(top &amp;gt; n) { flag = true; res[i%l] = top; break; } stack.</description>
+    </item>
+    
     <item>
       <title>Leetcode773 752 BFS模版</title>
       <link>https://faded828xx.github.io/post/leetcode773-752-bfs%E6%A8%A1%E7%89%88/</link>
