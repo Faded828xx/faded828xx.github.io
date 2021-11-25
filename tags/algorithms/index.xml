@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algorithms on Faded828xx Blog</title>
+    <link>https://faded828xx.github.io/tags/algorithms/</link>
+    <description>Recent content in algorithms on Faded828xx Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 04 Nov 2021 10:45:17 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode42接雨水</title>
+      <link>https://faded828xx.github.io/post/leetcode42%E6%8E%A5%E9%9B%A8%E6%B0%B4/</link>
+      <pubDate>Thu, 04 Nov 2021 10:45:17 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/leetcode42%E6%8E%A5%E9%9B%A8%E6%B0%B4/</guid>
+      <description>黑色十一月的事实，永远不会改变，第十周终究是难熬的。程序周+汇编考试+实习+软考+生日，都挤在这一周了，感觉没有实习的话，可能会好受很多，现在在办公室写下这段，唉😮‍💨，沧桑的人咯。努努力吧，争取都能圆满结束吧！有老唐在，真的无形之中给了我很大的鼓励，嘻嘻。力扣的每日题解最近断了好几次，之前最长的连续172天没了，呜呜。
+十一月二十五日补 ，怎想到 这篇博客半个月前写下， 标题为力扣题解， 但是这道题现在还没做， 而且当时写的博客也没提交 hh， 今天补交下。
+希望以后能把这题给补了。</description>
+    </item>
+    
+  </channel>
+</rss>
