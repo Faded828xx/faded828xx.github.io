@@ -53,117 +53,28 @@
         </div>
     </div>
 </nav><div id="content" class="container">
-<article class="row-fluid navmargin">
-    <header class="page-header">
-        <h1>Posts</h1>
-    </header>
-    
-    
-</article>
-<ul>
 
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>编译jdk - Mon, Nov 29, 2021</h1>
+    </div>
+    <p class="lead"></p>
+    <p>深入理解Java虚拟机借了好几天了，这两天试试编译jdk，遇到了不少麻烦。</p>
+<p>这是<a href="https://openjdk.java.net/groups/build/doc/building.html">官方文档</a>，这是<a href="https://jdk.java.net/">源码下载</a>。
+环境</p>
+<p>MacOS Monterey 12.0.1</p>
+<p>Xcode 13.1</p>
+<p>OpenJDK 11.0.12 (zulu arm)</p>
+<p>源码jdk也是11的，因为本机是m1的arm架构，所以网上大部分的MacOS编译源码都不适用。</p>
+<p>第三方依赖的问题就不记录了，缺的就用包管理工具下，没啥说的。执行sh configure进行配置检查的时候，说本机(32位)与目标(64位)不符，我就纳了闷的，然后去自动生成配置的文件里，一通修改，将arm中的32位改为64位，然后sh configure跑通了，不出所料，接下来make images直接挂了，都是C文件报错，应该是架构导致的问题。 查不到答案，去本地虚拟机里跑了一通，结果都是卡在了这一步。</p>
+<p>现在还是不明白aarch64和arm64有啥区别，前者是在虚拟机里执行arch的结果，后者是Mac里的结果。 如果相同的话，上述文件中确将两者分开处理。</p>
+<p>最后用了云服务器，x86架构的，操作同理，这次成功了。理论上现在修改源码(如println函数)，在重新编译的话，是可以生效的，但是没成功。</p>
+<p>另外要搞清楚vm options 和 program arguments的区别。</p>
+<p><img src="/img/%E7%BC%96%E8%AF%91jdk1.png" alt=""><img src="%E7%BC%96%E8%AF%91jdk2.png" alt=""></p>
 
-    <li>
-        <a href="https://faded828xx.github.io/post/%E7%BC%96%E8%AF%91jdk/">2021-11-29 | 编译jdk</a>
-    </li>
+    <h4><a href="https://faded828xx.github.io">Back to Home</a></h4>
+</div>
 
-    <li>
-        <a href="https://faded828xx.github.io/post/clash%E7%BD%91%E5%85%B3%E6%A8%A1%E5%BC%8F/">2021-11-25 | Clash网关模式</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/leetcode42%E6%8E%A5%E9%9B%A8%E6%B0%B4/">2021-11-04 | Leetcode42接雨水</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E5%8D%95%E8%B0%83%E6%A0%88-next-greater-number/">2021-10-26 | 单调栈 Next Greater Number</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E9%9D%A2%E8%AF%95%E4%B8%89/">2021-09-27 | 面试三</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/docker-%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/">2021-08-20 | Docker 构建镜像</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/git%E4%B8%ADssh%E5%92%8Chttps%E7%9A%84%E5%AF%B9%E6%AF%94/">2021-08-17 | Git中ssh和https的对比</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E9%9D%A2%E8%AF%95%E4%BA%8C/">2021-08-10 | 面试二</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/cookie%E5%92%8Csession%E7%9A%84%E5%8C%BA%E5%88%AB/">2021-08-09 | Cookie和session的区别</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E9%9D%A2%E8%AF%95%E4%B8%80/">2021-07-30 | 面试一</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/">2021-07-18 | 前后端分离</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/ubuntu%E9%85%8D%E7%BD%AEssh/">2021-07-13 | Ubuntu配置ssh</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/tomcat%E9%83%A8%E7%BD%B2servlet/">2021-07-09 | Tomcat部署Servlet</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/mysql%E7%B4%A2%E5%BC%95/">2021-07-07 | MySQL索引</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/leetcode773-752-bfs%E6%A8%A1%E7%89%88/">2021-06-26 | Leetcode773 752 BFS模版</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8ip%E5%9C%B0%E5%9D%80/">2021-06-12 | 为什么使用ip地址</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/go%E5%B8%B8%E9%87%8F%E5%8F%98%E9%87%8F/">2021-06-02 | Go常量变量</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/leetcode1707%E4%B8%8E%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%83%E7%B4%A0%E7%9A%84%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%80%BC/">2021-05-23 | Leetcode1707与数组中元素的最大异或值</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/helloworld%E6%B1%87%E7%BC%96/">2021-05-16 | Helloworld汇编</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E8%B1%86%E7%93%A3scrapy/">2021-05-13 | 豆瓣scrapy</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/leetcode1723%E5%AE%8C%E6%88%90%E6%89%80%E6%9C%89%E5%B7%A5%E4%BD%9C%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4/">2021-05-08 | Leetcode1723完成所有工作的最短时间</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E4%B8%80/">2021-04-25 | 背包问题一</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">2021-04-20 | 字符串模式匹配</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/%E8%B1%86%E7%93%A3%E5%B0%8F%E7%88%AC%E8%99%AB/">2021-04-18 | 豆瓣小爬虫</a>
-    </li>
-
-    <li>
-        <a href="https://faded828xx.github.io/post/hugo%E5%BB%BA%E7%AB%99/">2021-04-16 | Hugo建站</a>
-    </li>
-
-</ul>
 
         </div><footer class="container">
     <hr class="soften">

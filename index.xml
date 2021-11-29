@@ -6,7 +6,25 @@
     <description>Recent content on Faded828xx Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 25 Nov 2021 15:56:21 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Nov 2021 15:15:23 +0800</lastBuildDate><atom:link href="https://faded828xx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>编译jdk</title>
+      <link>https://faded828xx.github.io/post/%E7%BC%96%E8%AF%91jdk/</link>
+      <pubDate>Mon, 29 Nov 2021 15:15:23 +0800</pubDate>
+      
+      <guid>https://faded828xx.github.io/post/%E7%BC%96%E8%AF%91jdk/</guid>
+      <description>深入理解Java虚拟机借了好几天了，这两天试试编译jdk，遇到了不少麻烦。
+这是官方文档，这是源码下载。 环境
+MacOS Monterey 12.0.1
+Xcode 13.1
+OpenJDK 11.0.12 (zulu arm)
+源码jdk也是11的，因为本机是m1的arm架构，所以网上大部分的MacOS编译源码都不适用。
+第三方依赖的问题就不记录了，缺的就用包管理工具下，没啥说的。执行sh configure进行配置检查的时候，说本机(32位)与目标(64位)不符，我就纳了闷的，然后去自动生成配置的文件里，一通修改，将arm中的32位改为64位，然后sh configure跑通了，不出所料，接下来make images直接挂了，都是C文件报错，应该是架构导致的问题。 查不到答案，去本地虚拟机里跑了一通，结果都是卡在了这一步。
+现在还是不明白aarch64和arm64有啥区别，前者是在虚拟机里执行arch的结果，后者是Mac里的结果。 如果相同的话，上述文件中确将两者分开处理。
+最后用了云服务器，x86架构的，操作同理，这次成功了。理论上现在修改源码(如println函数)，在重新编译的话，是可以生效的，但是没成功。
+另外要搞清楚vm options 和 program arguments的区别。</description>
+    </item>
+    
     <item>
       <title>Clash网关模式</title>
       <link>https://faded828xx.github.io/post/clash%E7%BD%91%E5%85%B3%E6%A8%A1%E5%BC%8F/</link>
